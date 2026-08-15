@@ -1,0 +1,79 @@
+[
+  {
+    "id": "b1",
+    "customerName": "John Smith",
+    "tourName": "Endemic Expedition",
+    "date": "2026-05-15",
+    "endDate": "2026-05-16",
+    "status": "cancelled",
+    "participants": 2,
+    "slot": 0
+  },
+  {
+    "id": "b2",
+    "customerName": "Maria Garcia",
+    "tourName": "Highlands Birds",
+    "date": "2026-05-20",
+    "endDate": "2026-05-09",
+    "status": "confirmed",
+    "participants": 4
+  },
+  {
+    "customerName": "ssa",
+    "tourName": "a",
+    "date": "2026-05-26",
+    "endDate": "2026-05-31",
+    "status": "confirmed",
+    "participants": 2,
+    "id": "b1778524788190"
+  },
+  {
+    "customerName": "re",
+    "tourName": "Highlands Birds",
+    "date": "2026-06-01",
+    "endDate": "2026-06-04",
+    "status": "pending",
+    "participants": 2,
+    "id": "b1778529131641"
+  },
+  {
+    "customerName": "test",
+    "email": "test@example.com",
+    "phone": "+94 121212",
+    "country": "Sri Lanka",
+    "date": "2026-05-14",
+    "endDate": "2026-05-16",
+    "participants": 1,
+    "tourName": "Wild Southern Shores & Spirits",
+    "status": "confirmed",
+    "customLocations": [],
+    "customActivities": [],
+    "id": "b1778532481002",
+    "slot": 0
+  },
+  {
+    "customerName": "test",
+    "email": "test@example.com",
+    "phone": "+94 121212",
+    "country": "Sri Lanka",
+    "date": "2026-05-17",
+    "endDate": "2026-05-19",
+    "participants": 1,
+    "tourName": "Tailor-Made Journey",
+    "status": "confirmed",
+    "customLocations": [
+      "Sinharaja",
+      "Yala",
+      "Nuwara Eliya",
+      "Polonnaruwa",
+      "Ella"
+    ],
+    "customActivities": [
+      "Traditional Cooking Class",
+      "White Water Rafting",
+      "Diving"
+    ],
+    "id": "b1778532510447",
+    "slot": 2
+  }
+]

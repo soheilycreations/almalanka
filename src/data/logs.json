@@ -1,0 +1,164 @@
+[
+  {
+    "id": "1778520704026",
+    "timestamp": "2026-05-11T17:31:44.027Z",
+    "action": "Updated Stats",
+    "details": "New values: 82+, 3+, 20+, 13+"
+  },
+  {
+    "id": "1778520718728",
+    "timestamp": "2026-05-11T17:31:58.728Z",
+    "action": "Updated Stats",
+    "details": "New values: 12+, 3+, 20+, 13+"
+  },
+  {
+    "id": "1778520935382",
+    "timestamp": "2026-05-11T17:35:35.382Z",
+    "action": "Added Location",
+    "details": "Destination: Aluthgama (Coastal)"
+  },
+  {
+    "id": "1778521164247",
+    "timestamp": "2026-05-11T17:39:24.247Z",
+    "action": "Updated Location",
+    "details": "Destination: Kithulgala (Surfing)"
+  },
+  {
+    "id": "1778521193422",
+    "timestamp": "2026-05-11T17:39:53.422Z",
+    "action": "Updated Location",
+    "details": "Destination: Aluthgama (Surfing)"
+  },
+  {
+    "id": "1778521313114",
+    "timestamp": "2026-05-11T17:41:53.114Z",
+    "action": "Deleted Location",
+    "details": "Destination: Aluthgama"
+  },
+  {
+    "id": "1778522815897",
+    "timestamp": "2026-05-11T18:06:55.897Z",
+    "action": "Created User",
+    "details": "Account created for User01 (Editor)"
+  },
+  {
+    "id": "1778523341071",
+    "timestamp": "2026-05-11T18:15:41.071Z",
+    "action": "Created User",
+    "details": "Account created for user02 (Sales)"
+  },
+  {
+    "id": "1778523825634",
+    "timestamp": "2026-05-11T18:23:45.634Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #b1 (John Smith)"
+  },
+  {
+    "id": "1778523825751",
+    "timestamp": "2026-05-11T18:23:45.751Z",
+    "action": "Notified Customer",
+    "details": "Message sent to John Smith"
+  },
+  {
+    "id": "1778524396635",
+    "timestamp": "2026-05-11T18:33:16.635Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #b2 (Maria Garcia)"
+  },
+  {
+    "id": "1778524396665",
+    "timestamp": "2026-05-11T18:33:16.665Z",
+    "action": "Notified Customer",
+    "details": "Message sent to Maria Garcia"
+  },
+  {
+    "id": "1778524412361",
+    "timestamp": "2026-05-11T18:33:32.361Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #b2 (Maria Garcia)"
+  },
+  {
+    "id": "1778524412442",
+    "timestamp": "2026-05-11T18:33:32.442Z",
+    "action": "Notified Customer",
+    "details": "Message sent to Maria Garcia"
+  },
+  {
+    "id": "1778524569489",
+    "timestamp": "2026-05-11T18:36:09.489Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #b1 (John Smith)"
+  },
+  {
+    "id": "1778524569601",
+    "timestamp": "2026-05-11T18:36:09.601Z",
+    "action": "Notified Customer",
+    "details": "Message sent to John Smith"
+  },
+  {
+    "id": "1778524608571",
+    "timestamp": "2026-05-11T18:36:48.571Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #b1 (John Smith)"
+  },
+  {
+    "id": "1778524608647",
+    "timestamp": "2026-05-11T18:36:48.647Z",
+    "action": "Notified Customer",
+    "details": "Message sent to John Smith"
+  },
+  {
+    "id": "1778524638745",
+    "timestamp": "2026-05-11T18:37:18.745Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #b1 (John Smith)"
+  },
+  {
+    "id": "1778524638828",
+    "timestamp": "2026-05-11T18:37:18.828Z",
+    "action": "Notified Customer",
+    "details": "Message sent to John Smith"
+  },
+  {
+    "id": "1778524788277",
+    "timestamp": "2026-05-11T18:39:48.277Z",
+    "action": "Created Booking",
+    "details": "Manual entry created for ssa (#8190)"
+  },
+  {
+    "id": "1778529132789",
+    "timestamp": "2026-05-11T19:52:12.789Z",
+    "action": "Created Booking",
+    "details": "Manual entry created for re (#1641)"
+  },
+  {
+    "id": "1778530055227",
+    "timestamp": "2026-05-11T20:07:35.227Z",
+    "action": "Added Activity",
+    "details": "Experience: tea (Nature)"
+  },
+  {
+    "id": "1778530286305",
+    "timestamp": "2026-05-11T20:11:26.305Z",
+    "action": "Created Tour",
+    "details": "Plan: test"
+  },
+  {
+    "id": "1778533330566",
+    "timestamp": "2026-05-11T21:02:10.566Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #0447 (test)"
+  },
+  {
+    "id": "1778534002455",
+    "timestamp": "2026-05-11T21:13:22.455Z",
+    "action": "Deleted Tour",
+    "details": "Plan: test"
+  },
+  {
+    "id": "1778534933632",
+    "timestamp": "2026-05-11T21:28:53.632Z",
+    "action": "Modified Booking",
+    "details": "Details updated for #8190 (ssa)"
+  }
+]

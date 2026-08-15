@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a1",
+    "name": "Endemic Bird Watching",
+    "category": "Nature"
+  },
+  {
+    "id": "a2",
+    "name": "Night Safari",
+    "category": "Adventure"
+  },
+  {
+    "id": "a3",
+    "name": "Traditional Cooking Class",
+    "category": "Cultural"
+  },
+  {
+    "id": "a4",
+    "name": "Whale Watching",
+    "category": "Marine"
+  },
+  {
+    "id": "a5",
+    "name": "Snorkeling",
+    "category": "Marine"
+  },
+  {
+    "id": "a6",
+    "name": "Diving",
+    "category": "Marine"
+  },
+  {
+    "id": "a7",
+    "name": "White Water Rafting",
+    "category": "Adventure"
+  },
+  {
+    "name": "tea",
+    "category": "Nature",
+    "id": "1778530055016"
+  }
+]

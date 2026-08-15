@@ -1,0 +1,407 @@
+[
+  {
+    "title": "Endemic Expedition",
+    "days": 7,
+    "route": [
+      "Sinharaja",
+      "Yala National Park"
+    ],
+    "activities": [
+      "Endemic Bird Watching"
+    ],
+    "price": "From €1,200",
+    "image": "/Our Gallery/mahamevnawamahaviharaya-chicken-4242403_1920.jpg",
+    "overview": "Deep dive into Sinharaja Forest Reserve, Sri Lanka's last viable primary tropical rainforest.",
+    "highlights": [
+      "Sri Lanka Blue Magpie sighting",
+      "Primary jungle treks",
+      "Award-winning ecolodge stay"
+    ],
+    "difficulty": "Moderate",
+    "guide": "Senior Ornithologist",
+    "gallery": [],
+    "itinerary": [],
+    "id": "1"
+  },
+  {
+    "id": "2",
+    "title": "Highlands Birds",
+    "days": 5,
+    "route": [
+      "Nuwara Eliya"
+    ],
+    "activities": [
+      "Bird Watching"
+    ],
+    "price": "From €950",
+    "image": "/img/nuzree-crane-248240_1920.jpg",
+    "type": "Endemic Bird Watching",
+    "overview": "Explore the misty mountains of Sri Lanka. Focused on high-altitude endemic species.",
+    "highlights": [
+      "Horton Plains National Park",
+      "Tea plantation birding",
+      "Heritage stay"
+    ],
+    "difficulty": "Easy",
+    "guide": "Bilingual Ornithologist"
+  },
+  {
+    "id": "3",
+    "title": "Luxury Photo Safari",
+    "days": 10,
+    "route": [
+      "Yala"
+    ],
+    "activities": [
+      "Night Safari"
+    ],
+    "price": "From €2,100",
+    "image": "/img/jansimons-elephants-5999125_1920.jpg",
+    "type": "Wildlife & Safari",
+    "feat": true,
+    "overview": "Track the elusive Sri Lankan Leopard and Sloth Bear in modified pro-photography jeeps.",
+    "highlights": [
+      "Guaranteed leopard tracking",
+      "Private 4x4 photo jeep",
+      "5-star ultra-luxury glamping"
+    ],
+    "difficulty": "Easy",
+    "guide": "Wildlife Photographer"
+  },
+  {
+    "id": "4",
+    "title": "Trincomalee Coastal Escape",
+    "days": 3,
+    "route": [
+      "Trincomalee"
+    ],
+    "activities": [
+      "Whale Watching",
+      "Snorkeling",
+      "Cultural Tour"
+    ],
+    "price": "From €450",
+    "image": "/Our Gallery/nuzree-sri-lanka-170864_1920.jpg",
+    "type": "Coastal & Marine",
+    "overview": "Experience the crystal clear waters and rich cultural heritage of Trincomalee on Sri Lanka's east coast.",
+    "highlights": [
+      "Blue Whale watching expeditions",
+      "Ancient Kanniya Hot Wells",
+      "Pigeon Island snorkeling & diving"
+    ],
+    "difficulty": "Easy",
+    "guide": "Local Marine Expert",
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "Beaches + City + Relax",
+        "desc": "Explore the golden sands of Nilaveli and the historic city center."
+      },
+      {
+        "day": "Day 2",
+        "title": "Whale + Culture",
+        "desc": "Early morning whale watching followed by a visit to Koneswaram Temple."
+      },
+      {
+        "day": "Day 3",
+        "title": "Hot Springs & Sea Adventures",
+        "desc": "Visit the ancient Kanniya Hot Wells and enjoy snorkeling."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Historic Galle Fort Discovery",
+    "days": 2,
+    "route": [
+      "Galle"
+    ],
+    "activities": [
+      "Cultural Tour"
+    ],
+    "price": "From €250",
+    "image": "/Our Gallery/buddhika15807-galle-5115527_1920.jpg",
+    "type": "Culture & Heritage",
+    "overview": "Walk through centuries of history in the living UNESCO World Heritage site of Galle Fort.",
+    "highlights": [
+      "UNESCO World Heritage Galle Fort",
+      "Iconic Galle Lighthouse",
+      "Japanese Peace Pagoda Sunset"
+    ],
+    "difficulty": "Easy",
+    "guide": "Historian Guide",
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "Colonial Heritage",
+        "desc": "Morning exploration of the massive stone ramparts."
+      },
+      {
+        "day": "Day 2",
+        "title": "Peace Pagoda",
+        "desc": "Visit the serene Rumassala Peace Pagoda for sunset."
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Kithulgala Rainforest Adventure",
+    "days": 2,
+    "route": [
+      "Kithulgala"
+    ],
+    "activities": [
+      "White Water Rafting",
+      "Forest Trekking"
+    ],
+    "price": "From €320",
+    "image": "/Our Gallery/Kithulgala-Rafting.webp",
+    "type": "Adventure & Nature",
+    "overview": "Dive into the heart of Sri Lanka's adventure capital.",
+    "highlights": [
+      "Grade 2 & 3 White Water Rafting",
+      "Makandawa Rainforest Trekking",
+      "Rare Birds & Unique Flora observations"
+    ],
+    "difficulty": "Challenging",
+    "guide": "Adventure & Nature Specialist",
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "Kelani River Rapids",
+        "desc": "Exhilarating white-water rafting session."
+      },
+      {
+        "day": "Day 2",
+        "title": "Makandawa Forest",
+        "desc": "Early morning trek through Makandawa Forest Reserve."
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Ancient Kingdom of Anuradhapura",
+    "days": 2,
+    "route": [
+      "Anuradhapura"
+    ],
+    "activities": [
+      "Cultural Tour"
+    ],
+    "price": "From €280",
+    "image": "/img/chathuraanuradha-anuradhapura-7475663_1920.jpg",
+    "type": "Culture & Heritage",
+    "overview": "Journey back over 2,000 years to the first capital of Sri Lanka.",
+    "highlights": [
+      "Sacred Sri Maha Bodhi Tree",
+      "Colossal Ruwanwelisaya Stupa",
+      "Mihintale Peak & Temple Complex"
+    ],
+    "difficulty": "Moderate",
+    "guide": "Archaeological Expert",
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "The Sacred City",
+        "desc": "Full day exploration of the UNESCO World Heritage site."
+      },
+      {
+        "day": "Day 2",
+        "title": "Mihintale Peak",
+        "desc": "Climb the grand granite steps of Mihintale."
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Kandy Heritage & Hill Country",
+    "days": 3,
+    "route": [
+      "Kandy"
+    ],
+    "activities": [
+      "Cultural Tour",
+      "Nature Walk"
+    ],
+    "price": "From €390",
+    "image": "/Our Gallery/musthaqsms-temple-204803_1920.jpg",
+    "type": "Culture & Heritage",
+    "overview": "Discover the cultural soul of Sri Lanka in the mountain kingdom of Kandy.",
+    "highlights": [
+      "Sacred Temple of the Tooth Relic",
+      "Royal Botanical Gardens, Peradeniya",
+      "Hunas Falls & Sembuwaththa Lake"
+    ],
+    "difficulty": "Easy",
+    "guide": "Culture & Botany Specialist",
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "The Sacred Kingdom",
+        "desc": "Experience the spiritual heart of Kandy."
+      },
+      {
+        "day": "Day 2",
+        "title": "Royal Gardens",
+        "desc": "Morning amidst the exotic flora of Peradeniya."
+      },
+      {
+        "day": "Day 3",
+        "title": "Waterfalls",
+        "desc": "Journey to the breathtaking Hunas Falls."
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Sinharaja Deep Jungle Trek",
+    "days": 1,
+    "route": [
+      "Sinharaja"
+    ],
+    "activities": [
+      "Endemic Bird Watching",
+      "Forest Trekking"
+    ],
+    "price": "From €150",
+    "image": "/img/nuzree-humming-bird-234649_1920.jpg",
+    "type": "Endemic Bird Watching",
+    "overview": "An intensive day-long immersion into the heart of Sri Lanka's last primary tropical rainforest.",
+    "highlights": [
+      "8km deep jungle trek",
+      "6:30 AM early birding start",
+      "Sri Lanka Blue Magpie sightings"
+    ],
+    "difficulty": "Challenging",
+    "guide": "Senior Rainforest Tracker",
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "Deep Rainforest Tracking",
+        "desc": "Start at 6:30 AM for peak birding activity."
+      }
+    ]
+  },
+  {
+    "title": "Little England Heritage Tour",
+    "days": 2,
+    "route": [
+      "Nuwara Eliya"
+    ],
+    "activities": [
+      "Tea Factory Visit",
+      "Nature Walk",
+      "Cultural Tour"
+    ],
+    "price": "From €220",
+    "image": "/Our Gallery/fransoopatrick-woman-4826985_1920.jpg",
+    "overview": "Experience the charm of 'Little England' in the cool misty mountains.",
+    "highlights": [
+      "Horton Plains Sunrise Trek",
+      "Grand Hotel High Tea",
+      "Historic Pink Post Office"
+    ],
+    "difficulty": "Easy",
+    "guide": "Heritage Specialist",
+    "gallery": [],
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "Colonial Charm",
+        "desc": "Visit the Pink Post Office and Tea Factory."
+      },
+      {
+        "day": "Day 2",
+        "title": "Sunrise Trek",
+        "desc": "Breathtaking sunrise trek at Horton Plains."
+      }
+    ],
+    "id": "10"
+  },
+  {
+    "title": "Cultural Triangle Majesty",
+    "days": 3,
+    "route": [
+      "Sigiriya",
+      "Minneriya",
+      "Polonnaruwa"
+    ],
+    "activities": [
+      "Cultural Tour",
+      "Wildlife Safari",
+      "Ayurvedic Spa"
+    ],
+    "price": "From €480",
+    "image": "/Our Gallery/thanuja-ancient-192801_1920.jpg",
+    "overview": "Immerse yourself in the heart of Sri Lanka's cultural soul.",
+    "highlights": [
+      "Sigiriya Lion Rock sunrise climb",
+      "Minneriya National Park Elephant Safari",
+      "Polonnaruwa Ancient City exploration"
+    ],
+    "difficulty": "Moderate",
+    "guide": "History & Nature Specialist",
+    "gallery": [],
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "The Lion Rock",
+        "desc": "Early morning climb up Sigiriya Lion Rock."
+      },
+      {
+        "day": "Day 2",
+        "title": "Giants of Minneriya",
+        "desc": "Morning jeep safari to witness the elephant gathering."
+      },
+      {
+        "day": "Day 3",
+        "title": "Medieval Polonnaruwa",
+        "desc": "Explore the medieval capital of Sri Lanka."
+      }
+    ],
+    "id": "11"
+  },
+  {
+    "title": "Wild Southern Shores & Spirits",
+    "days": 3,
+    "route": [
+      "Yala",
+      "Katharagama",
+      "Kalamatiya"
+    ],
+    "activities": [
+      "Wildlife Safari",
+      "Religious Pilgrimage",
+      "Bird Watching"
+    ],
+    "price": "From €420",
+    "image": "/img/matt5948-monkey-2360022_1920.jpg",
+    "overview": "Experience the wild heart of Southern Sri Lanka.",
+    "highlights": [
+      "Full-day Yala Jeep Safari with jungle lunch",
+      "Sacred Kirivehera visit",
+      "Kalamatiya Bird Sanctuary lagoon tour"
+    ],
+    "difficulty": "Easy",
+    "guide": "Southern Wildlife Expert",
+    "gallery": [],
+    "itinerary": [
+      {
+        "day": "Day 1",
+        "title": "Deep into the Wild",
+        "desc": "Full-day safari with lunch in the jungle."
+      },
+      {
+        "day": "Day 2",
+        "title": "Spiritual Energy",
+        "desc": "Visit the ancient Kirivehera Stupa."
+      },
+      {
+        "day": "Day 3",
+        "title": "Kalamatiya Wetlands",
+        "desc": "Explore the bird sanctuary by boat."
+      }
+    ],
+    "id": "12"
+  }
+]

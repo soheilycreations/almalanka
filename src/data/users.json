@@ -1,0 +1,26 @@
+[
+  {
+    "id": "u1",
+    "name": "Ishar",
+    "email": "admin@almalanka.com",
+    "role": "Administrator",
+    "password": "admin",
+    "image": "/img/staff/ishar.jpg"
+  },
+  {
+    "name": "User01",
+    "email": "user01@almalanka.com",
+    "password": "123",
+    "role": "Editor",
+    "id": "u1778522815810",
+    "image": ""
+  },
+  {
+    "name": "user02",
+    "email": "user02@almalanka.com",
+    "password": "123",
+    "role": "Sales",
+    "id": "u1778523341052",
+    "image": ""
+  }
+]

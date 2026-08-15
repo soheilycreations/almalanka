@@ -1,0 +1,67 @@
+[
+  {
+    "id": "l1",
+    "name": "Sinharaja Forest Reserve",
+    "type": "Rainforest"
+  },
+  {
+    "id": "l2",
+    "name": "Yala National Park",
+    "type": "Wildlife"
+  },
+  {
+    "id": "l3",
+    "name": "Nuwara Eliya",
+    "type": "Highlands"
+  },
+  {
+    "id": "l4",
+    "name": "Sigiriya Rock Fortress",
+    "type": "Cultural"
+  },
+  {
+    "id": "l5",
+    "name": "Trincomalee",
+    "type": "Coastal"
+  },
+  {
+    "id": "l6",
+    "name": "Galle",
+    "type": "Historic"
+  },
+  {
+    "name": "Kithulgala",
+    "type": "Surfing",
+    "id": "l7"
+  },
+  {
+    "id": "l8",
+    "name": "Anuradhapura",
+    "type": "Ancient City"
+  },
+  {
+    "id": "l9",
+    "name": "Kandy",
+    "type": "Hill Capital"
+  },
+  {
+    "id": "l10",
+    "name": "Polonnaruwa",
+    "type": "Medieval City"
+  },
+  {
+    "id": "l11",
+    "name": "Katharagama",
+    "type": "Spiritual"
+  },
+  {
+    "id": "l12",
+    "name": "Kalamatiya",
+    "type": "Wetlands"
+  },
+  {
+    "name": "Ella",
+    "type": "Highlands",
+    "id": "1778520756522"
+  }
+]

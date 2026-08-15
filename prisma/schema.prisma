@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Booking {
+  id               String   @id @default(cuid())
+  customerName     String
+  email            String?
+  phone            String?
+  country          String?
+  tourName         String
+  date             String // arrival date
+  endDate          String?
+  status           String   @default("pending")
+  participants     Int      @default(1)
+  adults           Int      @default(1)
+  children         Int      @default(0)
+  slot             Int?
+  customLocations  String? // Store as JSON string or comma-separated
+  customActivities String? // Store as JSON string or comma-separated
+  notes            String?
+  timestamp        DateTime @default(now())
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  interest  String
+  message   String
+  timestamp DateTime @default(now())
+}
+
+model TourPlan {
+  id         String   @id @default(cuid())
+  title      String
+  days       Int
+  route      String?  // JSON string
+  activities String?  // JSON string
+  price      String
+  image      String
+  type       String?
+  feat       Boolean  @default(false)
+  overview   String
+  highlights String?  // JSON string
+  difficulty String
+  guide      String
+  gallery    String?  // JSON string
+  itinerary  String?  // JSON string
+}
+
+model User {
+  id       String  @id @default(cuid())
+  name     String
+  email    String  @unique
+  role     String
+  password String
+  image    String?
+}
+
+model Activity {
+  id       String @id @default(cuid())
+  name     String
+  category String
+}
+
+model Location {
+  id   String @id @default(cuid())
+  name String
+  type String
+}
+
+model Log {
+  id        String   @id @default(cuid())
+  timestamp DateTime @default(now())
+  action    String
+  details   String
+}
+
+model Stat {
+  id    String @id @default("current")
+  stat1 String @default("0")
+  stat2 String @default("0")
+  stat3 String @default("0")
+  stat4 String @default("0")
+}
