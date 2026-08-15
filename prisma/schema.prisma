@@ -93,3 +93,15 @@ model Stat {
   stat3 String @default("0")
   stat4 String @default("0")
 }
+
+model Review {
+  id         String   @id @default(cuid())
+  authorName String
+  rating     Int
+  message    String
+  photoUrls  String[] @default([])
+  videoUrls  String[] @default([])
+  voiceUrl   String?
+  status     String   @default("pending") // "pending" | "published"
+  createdAt  DateTime @default(now())
+}

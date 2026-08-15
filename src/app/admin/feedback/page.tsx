@@ -2,68 +2,70 @@
 
 import React, { useState, useEffect } from "react";
 
-interface Feedback {
+interface Review {
   id: string;
-  author: string;
-  content: string;
+  authorName: string;
+  message: string;
   rating: number;
   status: 'published' | 'pending';
+  photoUrls: string[];
+  videoUrls: string[];
+  voiceUrl: string | null;
 }
 
 export default function FeedbackPage() {
-  const [feedback, setFeedback] = useState<Feedback[]>([]);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState<Omit<Feedback, 'id'>>({
-    author: "",
-    content: "",
+  const [formData, setFormData] = useState({
+    authorName: "",
+    message: "",
     rating: 5,
-    status: 'published'
   });
 
-  const fetchFeedback = async () => {
+  const fetchReviews = async () => {
     try {
-      const res = await fetch('/api/feedback');
+      const res = await fetch('/api/reviews?all=true');
       const data = await res.json();
-      setFeedback(data);
+      setReviews(Array.isArray(data) ? data : []);
     } catch (err) {}
     setLoading(false);
   };
 
   useEffect(() => {
-    fetchFeedback();
+    fetchReviews();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await fetch('/api/feedback', {
+      await fetch('/api/reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, status: 'published' })
       });
       setIsModalOpen(false);
-      setFormData({ author: "", content: "", rating: 5, status: 'published' });
-      fetchFeedback();
+      setFormData({ authorName: "", message: "", rating: 5 });
+      fetchReviews();
     } catch (err) {
       alert("Error saving feedback");
     }
   };
 
-  const toggleStatus = async (item: Feedback) => {
+  const toggleStatus = async (item: Review) => {
     const newStatus = item.status === 'published' ? 'pending' : 'published';
-    await fetch('/api/feedback', {
-      method: 'PUT',
+    await fetch(`/api/reviews/${item.id}`, {
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...item, status: newStatus })
+      body: JSON.stringify({ status: newStatus })
     });
-    fetchFeedback();
+    fetchReviews();
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this review?")) return;
-    await fetch(`/api/feedback?id=${id}`, { method: 'DELETE' });
-    fetchFeedback();
+    await fetch(`/api/reviews/${id}`, { method: 'DELETE' });
+    fetchReviews();
   };
 
   return (
@@ -79,14 +81,18 @@ export default function FeedbackPage() {
       </header>
 
       <div className="flex flex-col gap-6">
-        {feedback.length === 0 ? (
+        {loading ? (
+          <div className="flex justify-center py-24">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
+          </div>
+        ) : reviews.length === 0 ? (
           <div className="bg-white border border-[#E5E5E5] p-12 text-center text-gray-400 italic">No feedback entries yet.</div>
         ) : (
-          feedback.map((rev) => (
+          reviews.map((rev) => (
             <div key={rev.id} className="bg-white border border-[#E5E5E5] p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow group">
                <div className="flex justify-between items-start mb-6">
                   <div>
-                     <h3 className="font-serif font-bold text-xl text-brand-dark">{rev.author}</h3>
+                     <h3 className="font-serif font-bold text-xl text-brand-dark">{rev.authorName}</h3>
                      <div className="flex gap-1 text-[#D4AF37] mt-1 text-xs">
                         {"★".repeat(rev.rating)}
                      </div>
@@ -97,7 +103,23 @@ export default function FeedbackPage() {
                      {rev.status}
                   </button>
                </div>
-               <p className="text-gray-600 font-sans italic leading-relaxed mb-8">"{rev.content}"</p>
+               <p className="text-gray-600 font-sans italic leading-relaxed mb-6">"{rev.message}"</p>
+
+               {(rev.photoUrls?.length > 0 || rev.videoUrls?.length > 0 || rev.voiceUrl) && (
+                 <div className="flex flex-wrap gap-3 mb-6">
+                    {rev.photoUrls?.map((url, i) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img key={`p-${i}`} src={url} alt="" className="w-20 h-20 object-cover rounded-sm border border-[#E5E5E5]" />
+                    ))}
+                    {rev.videoUrls?.map((url, i) => (
+                      <video key={`v-${i}`} src={url} muted className="w-20 h-20 object-cover rounded-sm border border-[#E5E5E5]" />
+                    ))}
+                    {rev.voiceUrl && (
+                      <audio src={rev.voiceUrl} controls className="h-10" />
+                    )}
+                 </div>
+               )}
+
                <div className="flex gap-4 border-t border-gray-100 pt-6">
                   <button onClick={() => handleDelete(rev.id)} className="text-[10px] uppercase tracking-widest font-bold text-gray-400 hover:text-red-600 transition-colors">Delete Entry</button>
                </div>
@@ -114,24 +136,15 @@ export default function FeedbackPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Customer Name</label>
-                <input required value={formData.author} onChange={e => setFormData({...formData, author: e.target.value})} className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none" />
+                <input required value={formData.authorName} onChange={e => setFormData({...formData, authorName: e.target.value})} className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none" />
               </div>
               <div>
                 <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Review Content</label>
-                <textarea required value={formData.content} onChange={e => setFormData({...formData, content: e.target.value})} className="w-full border border-[#E5E5E5] p-3 focus:border-brand-primary focus:outline-none h-32 text-sm" />
+                <textarea required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full border border-[#E5E5E5] p-3 focus:border-brand-primary focus:outline-none h-32 text-sm" />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Rating (1-5)</label>
-                  <input type="number" min="1" max="5" value={formData.rating} onChange={e => setFormData({...formData, rating: parseInt(e.target.value)})} className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none" />
-                </div>
-                <div>
-                  <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Initial Status</label>
-                  <select value={formData.status} onChange={e => setFormData({...formData, status: e.target.value as any})} className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none bg-transparent">
-                    <option value="published">Published</option>
-                    <option value="pending">Pending</option>
-                  </select>
-                </div>
+              <div>
+                <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Rating (1-5)</label>
+                <input type="number" min="1" max="5" value={formData.rating} onChange={e => setFormData({...formData, rating: parseInt(e.target.value)})} className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none" />
               </div>
               <div className="flex gap-4 pt-6">
                 <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 text-[10px] uppercase tracking-widest font-bold text-gray-400">Cancel</button>

@@ -92,3 +92,34 @@ export async function sendLeadNotification(lead: any) {
     console.error('Failed to send email notification:', error);
   }
 }
+
+export async function sendReviewNotification(review: any) {
+  const adminEmail = process.env.ADMIN_EMAIL || 'info@almalanka.com';
+
+  const mailOptions = {
+    from: `"AlmaLanka" <info@almalanka.com>`,
+    to: adminEmail,
+    subject: `New Customer Review: ${review.authorName} (${review.rating}★)`,
+    html: `
+      <div style="font-family: serif; max-width: 600px; margin: auto; border: 1px solid #E5E5E5; padding: 40px;">
+        <h2 style="color: #D4A017; font-size: 28px; border-bottom: 2px solid #D4A017; padding-bottom: 10px;">New Review Awaiting Approval</h2>
+        <p style="font-size: 16px; color: #555;">A customer just submitted a review on AlmaLanka.</p>
+        <hr style="border: 0; border-top: 1px solid #EEE; margin: 20px 0;" />
+        <p><strong>From:</strong> ${review.authorName}</p>
+        <p><strong>Rating:</strong> ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</p>
+        <p style="background: #FAF9F5; padding: 20px; font-style: italic; border-left: 4px solid #D4A017;">"${review.message}"</p>
+        ${(review.photoUrls?.length || review.videoUrls?.length || review.voiceUrl) ? `<p style="color: #888; font-size: 13px;">Includes attached media — view and approve in the admin panel.</p>` : ''}
+        <p style="margin-top: 30px; text-align: center;">
+          <a href="${process.env.NEXT_PUBLIC_BASE_URL || 'https://almalanka.com'}/admin/feedback" style="background: #D4A017; color: white; padding: 15px 30px; text-decoration: none; display: inline-block; font-weight: bold; border-radius: 2px;">Review & Approve</a>
+        </p>
+      </div>
+    `,
+  };
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Review notification email sent:', info.messageId);
+  } catch (error) {
+    console.error('Failed to send email notification:', error);
+  }
+}

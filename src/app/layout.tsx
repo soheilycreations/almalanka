@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 };
 
 import FloatingActions from "@/components/FloatingActions";
+import ReviewWidget from "@/components/ReviewWidget";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 export default function RootLayout({
@@ -46,6 +47,7 @@ export default function RootLayout({
           <Header />
           {children}
           <FloatingActions />
+          <ReviewWidget />
         </LanguageProvider>
       </body>
     </html>

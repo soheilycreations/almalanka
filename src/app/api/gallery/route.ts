@@ -1,16 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { getSupabaseAdmin } from '@/lib/supabase-admin';
 import fs from 'fs';
 import path from 'path';
 
 const BUCKET = 'gallery';
-
-function getSupabaseAdmin() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return null;
-  return createClient(url, key);
-}
+const MEDIA_EXT = /\.(jpg|jpeg|png|gif|webp|mp4|webm|mov|mp3|wav|ogg|m4a)$/i;
 
 export async function GET() {
   try {
@@ -39,7 +33,7 @@ export async function GET() {
     const galleryDir = path.join(process.cwd(), 'public/Our Gallery');
     if (fs.existsSync(galleryDir)) {
       const galleryFiles = fs.readdirSync(galleryDir)
-        .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
+        .filter(file => MEDIA_EXT.test(file))
         .map(file => ({
           id: `g-${file}`,
           src: `/Our Gallery/${file}`,
@@ -51,7 +45,7 @@ export async function GET() {
     const imgDir = path.join(process.cwd(), 'public/img');
     if (fs.existsSync(imgDir)) {
       const imgFiles = fs.readdirSync(imgDir)
-        .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
+        .filter(file => MEDIA_EXT.test(file))
         .map(file => ({
           id: `i-${file}`,
           src: `/img/${file}`,
@@ -78,30 +72,34 @@ export async function POST(request: NextRequest) {
     }
 
     const formData = await request.formData();
-    const file = formData.get('file') as File;
+    const files = formData.getAll('files') as File[];
 
-    if (!file) {
-      return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
+    if (!files.length) {
+      return NextResponse.json({ error: 'No files uploaded' }, { status: 400 });
     }
 
-    const safeName = file.name.replace(/\s+/g, '-');
-    const filename = `${Date.now()}-${safeName}`;
-    const buffer = Buffer.from(await file.arrayBuffer());
+    const results = [];
+    for (const file of files) {
+      const safeName = file.name.replace(/\s+/g, '-');
+      const filename = `${Date.now()}-${safeName}`;
+      const buffer = Buffer.from(await file.arrayBuffer());
 
-    const { error } = await supabase.storage.from(BUCKET).upload(filename, buffer, {
-      contentType: file.type || 'image/jpeg',
-      upsert: false,
-    });
+      const { error } = await supabase.storage.from(BUCKET).upload(filename, buffer, {
+        contentType: file.type || 'application/octet-stream',
+        upsert: false,
+      });
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      if (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
+      }
+
+      const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(filename);
+      results.push({ src: pub.publicUrl, filename });
     }
-
-    const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(filename);
 
     return NextResponse.json({
-      message: 'File uploaded successfully',
-      src: pub.publicUrl,
+      message: 'Files uploaded successfully',
+      files: results,
     });
   } catch (error) {
     console.error('Upload error:', error);
