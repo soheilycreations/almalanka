@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 interface Review {
   id: string;
   authorName: string;
+  country: string | null;
   message: string;
   rating: number;
   status: 'published' | 'pending';
@@ -92,7 +93,7 @@ export default function FeedbackPage() {
             <div key={rev.id} className="bg-white border border-[#E5E5E5] p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow group">
                <div className="flex justify-between items-start mb-6">
                   <div>
-                     <h3 className="font-serif font-bold text-xl text-brand-dark">{rev.authorName}</h3>
+                     <h3 className="font-serif font-bold text-xl text-brand-dark">{rev.authorName}{rev.country ? ` · ${rev.country}` : ''}</h3>
                      <div className="flex gap-1 text-[#D4AF37] mt-1 text-xs">
                         {"★".repeat(rev.rating)}
                      </div>

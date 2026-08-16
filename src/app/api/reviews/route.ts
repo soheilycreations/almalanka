@@ -30,6 +30,7 @@ export async function POST(request: Request) {
     const review = await prisma.review.create({
       data: {
         authorName: body.authorName,
+        country: body.country || null,
         rating: Math.max(1, Math.min(5, parseInt(body.rating))),
         message: body.message,
         photoUrls: Array.isArray(body.photoUrls) ? body.photoUrls : [],

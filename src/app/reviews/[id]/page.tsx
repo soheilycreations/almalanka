@@ -4,6 +4,10 @@ import ShareButtons from "@/components/ShareButtons";
 
 export const dynamic = "force-dynamic";
 
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(date);
+}
+
 export default async function ReviewPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const review = await prisma.review.findUnique({ where: { id } });
@@ -51,8 +55,15 @@ export default async function ReviewPage({ params }: { params: Promise<{ id: str
             </svg>
           ))}
         </div>
-        <h1 className="text-4xl font-serif font-bold text-brand-dark mb-2">{review.authorName}'s Experience</h1>
-        <p className="text-gray-400 text-xs uppercase tracking-widest">Shared via AlmaLanka</p>
+        <h1 className="text-4xl font-serif font-bold text-brand-dark mb-3">{review.authorName}'s Experience</h1>
+        <div className="flex items-center justify-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center font-serif font-bold text-sm">
+            {review.authorName.charAt(0).toUpperCase()}
+          </div>
+          <p className="text-gray-400 text-xs uppercase tracking-widest font-bold">
+            {[review.country, formatDate(review.createdAt)].filter(Boolean).join(" · ")}
+          </p>
+        </div>
       </div>
 
       <p className="text-xl font-serif italic text-brand-dark text-center leading-relaxed mb-12 px-4">

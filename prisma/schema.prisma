@@ -97,6 +97,7 @@ model Stat {
 model Review {
   id         String   @id @default(cuid())
   authorName String
+  country    String?
   rating     Int
   message    String
   photoUrls  String[] @default([])

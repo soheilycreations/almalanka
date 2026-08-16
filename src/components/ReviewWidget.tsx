@@ -17,6 +17,7 @@ export default function ReviewWidget() {
   const [reviewId, setReviewId] = useState<string | null>(null);
 
   const [name, setName] = useState("");
+  const [country, setCountry] = useState("");
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [message, setMessage] = useState("");
@@ -42,6 +43,7 @@ export default function ReviewWidget() {
     attachments.forEach((a) => URL.revokeObjectURL(a.previewUrl));
     if (voiceUrl) URL.revokeObjectURL(voiceUrl);
     setName("");
+    setCountry("");
     setRating(0);
     setHoverRating(0);
     setMessage("");
@@ -140,6 +142,7 @@ export default function ReviewWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           authorName: name.trim(),
+          country: country.trim() || null,
           rating,
           message: message.trim(),
           photoUrls,
@@ -165,14 +168,14 @@ export default function ReviewWidget() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-8 left-8 z-[100] w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform active:scale-95 group"
-        aria-label="Leave a review"
+        className="fixed bottom-8 left-8 z-[100] flex items-center gap-3 bg-brand-primary rounded-full pl-4 pr-5 py-3 shadow-2xl hover:scale-105 transition-transform active:scale-95"
+        aria-label="Write a review"
       >
-        <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
         </svg>
-        <span className="absolute left-full ml-4 bg-white px-3 py-1 rounded-sm text-[10px] font-bold text-gray-500 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          Leave a Review
+        <span className="text-white text-[11px] font-bold uppercase tracking-widest whitespace-nowrap">
+          Write a Review
         </span>
       </button>
 
@@ -214,13 +217,23 @@ export default function ReviewWidget() {
                 <h3 className="text-2xl font-serif font-bold text-brand-dark mb-1">Share Your Experience</h3>
                 <p className="text-gray-500 text-sm mb-4">We'd love to hear about your journey with AlmaLanka.</p>
 
-                <div>
-                  <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Your Name</label>
-                  <input
-                    required value={name} onChange={(e) => setName(e.target.value)}
-                    className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none"
-                    placeholder="Jane Doe"
-                  />
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Your Name</label>
+                    <input
+                      required value={name} onChange={(e) => setName(e.target.value)}
+                      className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none"
+                      placeholder="Jane Doe"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-2">Country</label>
+                    <input
+                      value={country} onChange={(e) => setCountry(e.target.value)}
+                      className="w-full border-b border-[#E5E5E5] p-2 focus:border-brand-primary focus:outline-none"
+                      placeholder="Spain"
+                    />
+                  </div>
                 </div>
 
                 <div>
