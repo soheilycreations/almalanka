@@ -7,6 +7,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 
 const countryCodes = [
   { code: "+94", country: "LK", flag: "🇱🇰", name: "Sri Lanka" },
@@ -437,25 +438,8 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* 5. Social Proof (Fixed Overlap) */}
-      <section className="py-32 px-8 relative bg-brand-bg text-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full z-0 pointer-events-none select-none">
-          <h2 className="text-[7rem] md:text-[14rem] leading-none font-serif text-brand-dark opacity-5 whitespace-nowrap">real stories</h2>
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-brand-dark mb-12">{t.storiesTitle}</h2>
-          <div className="text-brand-primary text-6xl font-serif opacity-30 mb-6">"</div>
-          <p className="text-2xl md:text-3xl font-serif italic text-brand-dark mb-12 leading-relaxed px-4">
-            {t.storyQuote}
-          </p>
-          <div className="flex flex-col items-center">
-            <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-primary">{t.storyAuthor}</h4>
-            <div className="flex gap-1 text-[#D4AF37] mt-2">
-              {"★★★★★"}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 5. Social Proof (Live Reviews Carousel) */}
+      <ReviewsCarousel title={t.storiesTitle} fallbackQuote={t.storyQuote} fallbackAuthor={t.storyAuthor} />
 
       {/* 6. FAQ & Contact */}
       <section id="contact" className="bg-[#FAF9F5] border-t border-[#E5E5E5] text-brand-dark">

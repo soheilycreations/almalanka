@@ -32,6 +32,7 @@ export default function Header() {
     { name: lang === "es" ? "Inicio" : "Home", href: "/" },
     { name: lang === "es" ? "Expediciones" : "Expeditions", href: "/tours" },
     { name: lang === "es" ? "Galería" : "Gallery", href: "/our-gallery" },
+    { name: lang === "es" ? "Opiniones" : "Reviews", href: "/reviews" },
     { name: lang === "es" ? "Contacto" : "Contact", href: "/contact" }
   ];
 
