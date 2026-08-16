@@ -6,8 +6,10 @@ import Link from "next/link";
 interface Review {
   id: string;
   authorName: string;
+  country: string | null;
   rating: number;
   message: string;
+  photoUrls: string[];
 }
 
 export default function ReviewsCarousel({
@@ -49,12 +51,20 @@ export default function ReviewsCarousel({
         <div className="text-brand-primary text-6xl font-serif opacity-30 mb-6">"</div>
 
         <div key={current ? current.id : "fallback"} className="animate-modal-pop">
+          {current?.photoUrls?.[0] && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={current.photoUrls[0]}
+              alt=""
+              className="w-24 h-24 rounded-full object-cover mx-auto mb-8 border-4 border-white shadow-lg"
+            />
+          )}
           <p className="text-2xl md:text-3xl font-serif italic text-brand-dark mb-12 leading-relaxed px-4 min-h-[4.5em]">
             {current ? current.message : fallbackQuote}
           </p>
           <div className="flex flex-col items-center">
             <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-primary">
-              {current ? `- ${current.authorName}` : fallbackAuthor}
+              {current ? `- ${current.authorName}${current.country ? `, ${current.country}` : ""}` : fallbackAuthor}
             </h4>
             <div className="flex gap-1 text-[#D4AF37] mt-2">
               {"★".repeat(current ? current.rating : 5)}
