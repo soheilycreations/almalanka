@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getSupabaseAdmin } from '@/lib/supabase-admin';
+import { getSupabaseAdmin, safeStorageFilename } from '@/lib/supabase-admin';
 import fs from 'fs';
 import path from 'path';
 
@@ -80,8 +80,7 @@ export async function POST(request: NextRequest) {
 
     const results = [];
     for (const file of files) {
-      const safeName = file.name.replace(/\s+/g, '-');
-      const filename = `${Date.now()}-${safeName}`;
+      const filename = safeStorageFilename(file.name);
       const buffer = Buffer.from(await file.arrayBuffer());
 
       const { error } = await supabase.storage.from(BUCKET).upload(filename, buffer, {

@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getSupabaseAdmin } from '@/lib/supabase-admin';
+import { getSupabaseAdmin, safeStorageFilename } from '@/lib/supabase-admin';
 
 const BUCKET = 'reviews';
 
 async function uploadOne(supabase: ReturnType<typeof getSupabaseAdmin>, file: File) {
-  const safeName = file.name.replace(/\s+/g, '-');
-  const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${safeName}`;
+  const filename = safeStorageFilename(file.name);
   const buffer = Buffer.from(await file.arrayBuffer());
 
   const { error } = await supabase!.storage.from(BUCKET).upload(filename, buffer, {
